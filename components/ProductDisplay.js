@@ -52,7 +52,7 @@ app.component("product-display", {
   methods: {
     addToCart() {
       if (this.variants[this.selectedVariant].quantity > 0) {
-        this.$emit("add-to-cart");
+        this.$emit("add-to-cart", this.variants[this.selectedVariant].id);
       }
     },
     updateSelected(sock) {
