@@ -51,7 +51,9 @@ app.component("product-display", {
   },
   methods: {
     addToCart() {
-      this.inStock ? (this.cart += 1) : null;
+      if (this.variants[this.selectedVariant].quantity > 0) {
+        this.$emit("add-to-cart");
+      }
     },
     updateSelected(sock) {
       this.selectedVariant = sock;
