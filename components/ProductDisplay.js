@@ -26,6 +26,8 @@ app.component("product-display", {
             Add to Cart
           </button>
         </div>
+        <review-list v-if="reviews.length" :reviews="reviews"></review-list>
+        <review-form @review-submitted="addReview"></review-form>
       </div>`,
   data() {
     return {
@@ -47,6 +49,7 @@ app.component("product-display", {
           quantity: 0,
         },
       ],
+      reviews: [],
     };
   },
   methods: {
@@ -57,6 +60,9 @@ app.component("product-display", {
     },
     updateSelected(sock) {
       this.selectedVariant = sock;
+    },
+    addReview(review) {
+      this.reviews.push(review);
     },
   },
   computed: {
