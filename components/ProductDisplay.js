@@ -15,7 +15,7 @@ app.component("product-display", {
             :key="variant.id"
             class="color-circle"
             :style="{backgroundColor: variant.color}"
-            @mouseover="updateSelected(index)"
+            @click="updateSelected(index)"
           ></div>
           <button
             class="button"
